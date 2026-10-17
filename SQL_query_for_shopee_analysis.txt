@@ -1,0 +1,10 @@
+SELECT 
+    item_category_detail,
+    COUNT(*) as total_listings,
+    ROUND(AVG(price_actual), 2) as avg_price,
+    ROUND(SUM(total_sold_clean), 0) as cumulative_units_sold
+FROM shopee_products
+GROUP BY item_category_detail
+ORDER BY cumulative_units_sold DESC
+LIMIT 10
+
